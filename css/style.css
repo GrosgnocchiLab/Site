@@ -1,0 +1,123 @@
+:root {
+  --fond: #f5f7fb;
+  --carte: #ffffff;
+  --texte: #1c2333;
+  --doux: #5b6478;
+  --bord: #dde2ec;
+  --accent: #1f5eff;
+  --accent-fonce: #1647c4;
+  --succes: #0f8a4f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--fond);
+  color: var(--texte);
+  line-height: 1.6;
+}
+
+a { color: var(--accent); }
+
+.conteneur { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+
+.entete { background: var(--carte); border-bottom: 1px solid var(--bord); }
+.entete .conteneur { display: flex; justify-content: space-between; align-items: center; height: 60px; }
+.logo { font-weight: 800; font-size: 1.4rem; text-decoration: none; color: var(--texte); }
+.logo span { color: var(--accent); }
+.entete nav a { text-decoration: none; color: var(--doux); }
+
+.intro h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); margin: 24px 0 8px; line-height: 1.2; }
+.intro p { color: var(--doux); margin-top: 0; }
+
+.grille { display: grid; grid-template-columns: 1fr; gap: 24px; }
+@media (min-width: 960px) {
+  .grille { grid-template-columns: minmax(0, 1fr) 300px; }
+}
+.colonne-laterale { display: none; }
+@media (min-width: 960px) {
+  .colonne-laterale { display: block; }
+  .pub--laterale { position: sticky; top: 16px; }
+}
+
+.carte {
+  background: var(--carte);
+  border: 1px solid var(--bord);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+fieldset { border: 0; padding: 0; margin: 0 0 8px; }
+legend { font-weight: 600; margin-bottom: 8px; }
+.choix { display: flex; flex-wrap: wrap; gap: 8px; }
+.choix label {
+  border: 1px solid var(--bord);
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: 400;
+  margin: 0;
+}
+.choix label:has(input:checked) { border-color: var(--accent); background: #eef3ff; }
+
+label { display: block; font-weight: 600; margin: 14px 0 6px; }
+label small { font-weight: 400; color: var(--doux); }
+
+input[type=number], input[type=date], select {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1px solid var(--bord);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--texte);
+}
+input:focus, select:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+.bouton {
+  margin-top: 20px;
+  width: 100%;
+  padding: 14px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent);
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.bouton:hover { background: var(--accent-fonce); }
+
+.resultat h2 { margin-top: 0; font-size: 1.1rem; color: var(--doux); }
+.total { font-size: 2.4rem; font-weight: 800; color: var(--succes); margin: 0 0 12px; }
+table { width: 100%; border-collapse: collapse; }
+td, th { padding: 8px 4px; border-bottom: 1px solid var(--bord); text-align: left; }
+td:last-child, th:last-child { text-align: right; white-space: nowrap; }
+.notes { padding-left: 18px; color: var(--doux); }
+.info { font-size: 0.9rem; color: var(--doux); }
+
+.contenu h2 { margin-top: 32px; }
+.tableau-defilant { overflow-x: auto; }
+details { background: var(--carte); border: 1px solid var(--bord); border-radius: 8px; padding: 12px 16px; margin-bottom: 8px; }
+summary { cursor: pointer; font-weight: 600; }
+
+/* Emplacements publicitaires : hauteur réservée pour éviter les décalages (CLS) */
+.pub { margin: 20px 0; text-align: center; overflow: hidden; }
+.pub--banniere { min-height: 100px; }
+.pub--contenu { min-height: 280px; }
+.pub--laterale { min-height: 600px; margin-top: 0; }
+.pub--demo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--bord);
+  border-radius: 8px;
+  color: var(--doux);
+  font-size: 0.85rem;
+}
+.pub--demo::before { content: "Emplacement publicitaire"; }
+
+.pied { margin-top: 40px; padding: 24px 0; background: var(--carte); border-top: 1px solid var(--bord); font-size: 0.9rem; color: var(--doux); }

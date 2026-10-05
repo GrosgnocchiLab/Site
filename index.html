@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calcul du prix de la carte grise 2026 — Simulateur gratuit | SimulAuto</title>
+  <meta name="description" content="Calculez gratuitement le coût de votre carte grise en 2026 selon votre région, la puissance fiscale et l'âge du véhicule. Détail des taxes et barème régional à jour.">
+  <link rel="canonical" href="https://www.example.fr/">
+  <meta property="og:title" content="Calcul du prix de la carte grise 2026">
+  <meta property="og:description" content="Simulateur gratuit : coût de la carte grise selon votre région et votre véhicule.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Comment est calculé le prix d'une carte grise ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Le prix correspond à la taxe régionale (puissance fiscale × prix du cheval fiscal de votre région), à laquelle s'ajoutent une taxe fixe de 11 € et une redevance d'acheminement de 2,76 €. Pour un véhicule neuf, un malus écologique peut s'ajouter." }
+      },
+      {
+        "@type": "Question",
+        "name": "Où trouver la puissance fiscale de mon véhicule ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "La puissance fiscale (en chevaux fiscaux, CV) est indiquée dans la case P.6 du certificat d'immatriculation." }
+      },
+      {
+        "@type": "Question",
+        "name": "La carte grise est-elle moins chère pour un véhicule de plus de 10 ans ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Oui, la taxe régionale est réduite de 50 % pour les véhicules de plus de 10 ans." }
+      },
+      {
+        "@type": "Question",
+        "name": "Le changement d'adresse sur la carte grise est-il payant ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Non, la mise à jour de l'adresse sur le certificat d'immatriculation est gratuite sur le site officiel de l'ANTS." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="entete">
+    <div class="conteneur">
+      <a class="logo" href="./">Simul<span>Auto</span></a>
+      <nav><a href="#faq">FAQ</a></nav>
+    </div>
+  </header>
+
+  <main class="conteneur">
+    <div class="pub pub--banniere" data-slot="1111111111" aria-label="Publicité"></div>
+
+    <section class="intro">
+      <h1>Calcul du prix de la carte grise en 2026</h1>
+      <p>Estimez gratuitement le coût de votre certificat d'immatriculation selon votre région et votre véhicule.</p>
+    </section>
+
+    <div class="grille">
+      <div class="colonne-principale">
+        <form id="form-calcul" class="carte" novalidate>
+          <fieldset>
+            <legend>Type de démarche</legend>
+            <div class="choix">
+              <label><input type="radio" name="demarche" value="occasion" checked> Achat d'occasion</label>
+              <label><input type="radio" name="demarche" value="neuf"> Véhicule neuf</label>
+              <label><input type="radio" name="demarche" value="adresse"> Changement d'adresse</label>
+            </div>
+          </fieldset>
+
+          <label for="region">Votre région</label>
+          <select id="region" required></select>
+
+          <div id="bloc-vehicule">
+            <label for="chevaux">Puissance fiscale (CV) <small>case P.6 de la carte grise</small></label>
+            <input id="chevaux" type="number" min="1" max="200" inputmode="numeric" placeholder="Ex. : 5" required>
+
+            <label for="energie">Énergie</label>
+            <select id="energie">
+              <option value="thermique">Essence / Diesel</option>
+              <option value="hybride">Hybride</option>
+              <option value="electrique">Électrique / Hydrogène</option>
+            </select>
+
+            <div id="bloc-date">
+              <label for="dateMEC">Date de 1re mise en circulation <small>case B</small></label>
+              <input id="dateMEC" type="date">
+            </div>
+          </div>
+
+          <button type="submit" class="bouton">Calculer le prix</button>
+        </form>
+
+        <section id="resultat" class="carte resultat" hidden aria-live="polite">
+          <h2>Prix estimé de votre carte grise</h2>
+          <p class="total" id="res-total"></p>
+          <table>
+            <tr><td>Taxe régionale (Y1)</td><td id="res-regionale"></td></tr>
+            <tr><td>Taxe fixe (Y4)</td><td id="res-fixe"></td></tr>
+            <tr><td>Redevance d'acheminement (Y5)</td><td id="res-redevance"></td></tr>
+          </table>
+          <ul id="res-notes" class="notes"></ul>
+          <p class="info">Faites votre démarche gratuitement sur le site officiel <a href="https://immatriculation.ants.gouv.fr/" rel="noopener" target="_blank">ants.gouv.fr</a>.</p>
+        </section>
+
+        <div class="pub pub--contenu" data-slot="2222222222" aria-label="Publicité"></div>
+
+        <article class="contenu">
+          <h2>Comment est calculé le prix de la carte grise ?</h2>
+          <p>Le coût d'un certificat d'immatriculation est la somme de plusieurs taxes :</p>
+          <ul>
+            <li><strong>La taxe régionale (Y1)</strong> : puissance fiscale × prix du cheval fiscal fixé par votre région. C'est la part la plus importante.</li>
+            <li><strong>La taxe fixe (Y4)</strong> : 11 €.</li>
+            <li><strong>La redevance d'acheminement (Y5)</strong> : 2,76 € pour l'envoi du titre à votre domicile.</li>
+            <li><strong>Le malus écologique (Y3)</strong> : uniquement lors de la première immatriculation en France d'un véhicule polluant ou lourd.</li>
+          </ul>
+
+          <h2>Prix du cheval fiscal par région</h2>
+          <div class="tableau-defilant">
+            <table id="tableau-regions">
+              <thead><tr><th>Région</th><th>Prix du CV</th><th>Exemple 5 CV</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <p class="info">Barème mis à jour : <span id="maj-tarifs"></span>. Vérifiez le tarif en vigueur auprès de votre région.</p>
+
+          <h2 id="faq">Questions fréquentes</h2>
+          <details>
+            <summary>Où trouver la puissance fiscale de mon véhicule ?</summary>
+            <p>Elle est indiquée dans la case <strong>P.6</strong> de votre certificat d'immatriculation, en chevaux fiscaux (CV).</p>
+          </details>
+          <details>
+            <summary>La carte grise est-elle moins chère pour un vieux véhicule ?</summary>
+            <p>Oui : pour un véhicule de plus de 10 ans, la taxe régionale est réduite de 50 %.</p>
+          </details>
+          <details>
+            <summary>Les voitures électriques paient-elles la carte grise ?</summary>
+            <p>Depuis 2025, chaque région décide d'exonérer totalement, partiellement ou pas du tout les véhicules électriques. Renseignez-vous auprès de votre région.</p>
+          </details>
+          <details>
+            <summary>Le changement d'adresse est-il payant ?</summary>
+            <p>Non, la mise à jour de l'adresse est gratuite sur le site officiel de l'ANTS. Méfiez-vous des sites qui la facturent.</p>
+          </details>
+        </article>
+      </div>
+
+      <aside class="colonne-laterale">
+        <div class="pub pub--laterale" data-slot="3333333333" aria-label="Publicité"></div>
+      </aside>
+    </div>
+
+    <div class="pub pub--banniere" data-slot="4444444444" aria-label="Publicité"></div>
+  </main>
+
+  <footer class="pied">
+    <div class="conteneur">
+      <p>SimulAuto est un site indépendant, non affilié à l'ANTS ni au ministère de l'Intérieur. Les montants sont des estimations.</p>
+      <p><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></p>
+    </div>
+  </footer>
+
+  <script src="js/tarifs.js"></script>
+  <script src="js/calcul.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/regions.js"></script>
+  <script src="js/pub.js"></script>
+</body>
+</html>
